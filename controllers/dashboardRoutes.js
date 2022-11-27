@@ -4,7 +4,7 @@ const { Post } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('all-posts-admin', {
+    res.render('all-posts', {
       layout: 'dashboard',
       posts,
     });
@@ -24,10 +24,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/new', async (req, res) => {
-
-  res.render('new-post', {
-    layout: 'dashboard',
+router.get('/create', async (req, res) => {
+  res.render('post', {
+    layout: 'main',
   });
 
 });

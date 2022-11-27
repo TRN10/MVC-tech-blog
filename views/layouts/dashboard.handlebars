@@ -1,26 +1,27 @@
-<div class='mb-5 pt-3'>
-    <a href='/dashboard/create/'><button class='btn btn-primary justify-content-end' id='create-blog'>Add a
-            New Post</button></a>
-    <h2 class='title pb-4'>Dashboard: Your Posts</h2>
-    {{#if post.length}}
-</div>
+<nav>
+    <div class='mb-5 pt-3'>
+        <a href='/dashboard/create/'><button class='btn btn-primary justify-content-end' id='create-blog'>Add a
+                New Post</button></a>
+        <h2 class='title pb-4'>Dashboard: Your Posts</h2>
+        {{#if post.length}}
+    </div>
 
-{{#each post as | post|}}
-{{>post-info post}}
-<a href='/dashboard/edit/{{post.id}}'><button class='btn btn-warning mb-5 ml-5'>Edit a Post</button></a>
-{{/each}}
+    {{#each post as | post|}}
+    {{>post-info post}}
+    <a href='/dashboard/edit/{{post.id}}'><button class='btn btn-warning mb-5 ml-5'>Edit a Post</button></a>
+    {{/each}}
 
-{{else}}
-<h6 class='text center font-italic pb-4'> There are no Posts</h6>
+    {{else}}
+    <h6 class='text center font-italic pb-4'> There are no Posts</h6>
 
-{{/if}}
+    {{/if}}
 
 
-<!-- Render login links -->
-{{#if logged_in}}
-<a href="/profile">profile</a> |
-<button class="no-button" id="logout">logout</button>
-{{else}}
-<a href="/login">login</a>
-{{/if}}
+    <!-- Render login links -->
+    {{#if logged_in}}
+    <a href="/profile">profile</a> |
+    <button class="no-button" id="logout">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
 </nav>
